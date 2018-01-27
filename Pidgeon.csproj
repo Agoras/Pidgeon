@@ -253,6 +253,9 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
@@ -282,7 +285,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameManagerThing.cs" />
+    <Compile Include="Assets\Scripts\GroundSegmentBehaivor.cs" />
+    <Compile Include="Assets\Scripts\GroundSpawning.cs" />
+    <Compile Include="Assets\Scripts\MessageBehaivor.cs" />
     <Compile Include="Assets\Scripts\PidgeonControl.cs" />
+    <Compile Include="Assets\Scripts\SceneFlowManager.cs" />
+    <Compile Include="Assets\Scripts\TargetBehaivor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
