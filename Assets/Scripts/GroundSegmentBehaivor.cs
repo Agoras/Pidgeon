@@ -7,6 +7,7 @@ public class GroundSegmentBehaivor : MonoBehaviour {
 	private GroundSpawning groundSpawner;
 	public float moveSpeed;
 	private Vector2 currentPos;
+	public Transform targetParent;
 
 	public List<Transform> targetPositions = new List<Transform>();
 	public List<GameObject> MailBoxes = new List<GameObject>();
@@ -19,9 +20,8 @@ public class GroundSegmentBehaivor : MonoBehaviour {
 			GameObject newMailbox = Instantiate (MailBoxes [0], Vector2.zero, Quaternion.identity) as GameObject;
 			Transform boxTransform = newMailbox.transform;
 
-			boxTransform.SetParent (this.transform);
+			boxTransform.SetParent (targetParent);
 			boxTransform.localPosition = targetPositions [i].localPosition;
-			boxTransform.localScale = new Vector2 ( boxTransform.localScale.x * this.transform.localScale.x, boxTransform.localScale.y * this.transform.localScale.y);
 		}
 
 

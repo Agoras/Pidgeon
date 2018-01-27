@@ -703,9 +703,9 @@ MonoBehaviour:
   destroyOffset: 14
   groundHeight: -3
   groundSegPrefab:
-  - {fileID: 1227650135179702, guid: b9d55818d3c49c8478f1d903f88d7f98, type: 2}
-  - {fileID: 1227650135179702, guid: 79ce65d216c6e8b4794b87326c3aaa93, type: 2}
-  - {fileID: 1227865707298140, guid: 1919b0789dc72e34392ac844bea10184, type: 2}
+  - {fileID: 1827053466543020, guid: 45d5a120aa9ea804b84a6f38d185be26, type: 2}
+  - {fileID: 1180767248135094, guid: 2d2f24ccf2ce4cd489e4b2dc341c51b8, type: 2}
+  - {fileID: 1822293847479992, guid: f66304ab143a3c5478081b4fe4934afd, type: 2}
   groundParent: {fileID: 1155764073}
   StartGroundObject: {fileID: 313152111}
 --- !u!1 &1218347444
