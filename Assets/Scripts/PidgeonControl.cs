@@ -33,6 +33,8 @@ public class PidgeonControl : MonoBehaviour {
 	public  float idleFlapSpeed;
 	public  float maxFlapSpeed;
 
+	//private bool isLoaded;
+
 
 	void Awake () 
 	{
@@ -69,6 +71,12 @@ public class PidgeonControl : MonoBehaviour {
 			isFlapping = true;
 			isFlappingTimer = 0.0f;
 		}
+
+		// load up projectile
+
+
+
+
 
 		if (Input.GetButtonDown ("Fire1")) 
 		{
