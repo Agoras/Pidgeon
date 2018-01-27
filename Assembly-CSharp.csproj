@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\GroundSpawning.cs" />
      <Compile Include="Assets\Scripts\MessageBehaivor.cs" />
      <Compile Include="Assets\Scripts\PidgeonControl.cs" />
+     <Compile Include="Assets\Scripts\SceneFlowManager.cs" />
      <Compile Include="Assets\Scripts\TargetBehaivor.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

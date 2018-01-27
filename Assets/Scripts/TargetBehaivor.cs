@@ -11,6 +11,8 @@ public class TargetBehaivor : MonoBehaviour {
 	public float zone1Distance;
 	public int zone1Points = 1;
 
+	private bool isHit = false;
+
 	private SpriteRenderer spriteRenderer;
 
 	void Awake () 
@@ -21,18 +23,21 @@ public class TargetBehaivor : MonoBehaviour {
 
 	public void CalculatePoints (float distance)
 	{
-		if (distance <= zone0Distance) 
+		if (isHit == false) 
 		{
-			gm.pigeonRep += zone0Points;
-			gm.UpdatePigonRep ();
-			spriteRenderer.material.color = Color.green;
-		} 
-		else 
-		{
-			gm.pigeonRep += zone1Points;
-			gm.UpdatePigonRep ();
-			spriteRenderer.material.color = Color.blue;
-
+			if (distance <= zone0Distance) 
+			{
+				gm.pigeonRep += zone0Points;
+				gm.UpdatePigonRep ();
+				spriteRenderer.material.color = Color.green;
+			} 
+			else 
+			{
+				gm.pigeonRep += zone1Points;
+				gm.UpdatePigonRep ();
+				spriteRenderer.material.color = Color.blue;
+			}
+			isHit = true;
 		}
 	}
 }

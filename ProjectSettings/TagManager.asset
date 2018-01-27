@@ -7,6 +7,8 @@ TagManager:
   - GroundSpawner
   - Target
   - GameManager
+  - death
+  - SceneManager
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - player
   - message
   - targetZone
-  - 
+  - ground
   - 
   - 
   - 

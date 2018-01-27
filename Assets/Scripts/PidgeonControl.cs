@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PidgeonControl : MonoBehaviour {
 
+
+	private SceneFlowManager sceneManager;
 	private Rigidbody2D pidgeon_rb;
 
 	private float gravityForce;
@@ -25,7 +27,8 @@ public class PidgeonControl : MonoBehaviour {
 
 	void Awake () 
 	{
-		pidgeon_rb= this.transform.GetComponent<Rigidbody2D>();
+		sceneManager = GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneFlowManager>();
+		pidgeon_rb   = this.transform.GetComponent<Rigidbody2D>();
 	}
 	
 	void Update () 
@@ -65,7 +68,13 @@ public class PidgeonControl : MonoBehaviour {
 				dropDelayTimer = 0.0f;
 			}
 		}
-			
+	}
 
+	void OnCollisionEnter2D (Collision2D collision2D)
+	{
+		if(collision2D.transform.tag == "death")
+		{
+			sceneManager.ReloadLevel ();
+		}
 	}
 }
