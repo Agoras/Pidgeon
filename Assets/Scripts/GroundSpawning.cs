@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class GroundSpawning : MonoBehaviour {
 
-	public float groundMoveSpeed;
+	public float groundMoveSpeedMin;
+	public float groundMoveSpeedMax;
+	private float currentGroundSpeed;
+
+	public float groundSpeedAcceleration;
+
 	private float midScreenPos = 0;
 	public float spawnPos = 15;
 	public float destroyOffset;
 	private float destroyPos;
 	public float groundHeight;
 
-	public GameObject groundObject;
+	public List<GameObject> groundSegPrefab = new List<GameObject>();
 	public Transform groundParent;
 
 
@@ -23,10 +28,15 @@ public class GroundSpawning : MonoBehaviour {
 	{
 		destroyPos = midScreenPos - destroyOffset;
 		groundObjects.Add (StartGroundObject);
+
+		currentGroundSpeed = groundMoveSpeedMin;
 	}
 	
 	void Update () 
 	{
+		float deltaTime = Time.deltaTime;
+
+
 		if(groundObjects[0].transform.localPosition.x < midScreenPos &&  groundObjects.Count < 2)
 		{
 			SpawnObject ();
@@ -35,8 +45,13 @@ public class GroundSpawning : MonoBehaviour {
 		{
 			RemoveFirstObject ();
 		}
-		// FIX THIS DUMMY
-		UpdateGroundSpeed(groundMoveSpeed);
+
+
+
+		// speed up level
+		currentGroundSpeed = Mathf.Lerp (currentGroundSpeed, groundMoveSpeedMax, groundSpeedAcceleration * deltaTime);
+
+		UpdateGroundSpeed(currentGroundSpeed);
 	}
 
 	public void RemoveFirstObject ()
@@ -48,8 +63,10 @@ public class GroundSpawning : MonoBehaviour {
 
 	public void SpawnObject ()
 	{
-		
-		GameObject newGO = Instantiate(groundObject, new Vector2( midScreenPos + spawnPos, groundHeight ) , Quaternion.identity) as GameObject;
+
+		int randomGroundSeg = Random.Range (0, groundSegPrefab.Count);
+
+		GameObject newGO = Instantiate(groundSegPrefab[randomGroundSeg], new Vector2( midScreenPos + spawnPos, groundHeight ) , Quaternion.identity) as GameObject;
 		newGO.transform.SetParent (groundParent);
 		//newGO.transform.localPosition = new Vector2 (midScreenPos + spawnPos, groundHeight);
 		groundObjects.Add (newGO);

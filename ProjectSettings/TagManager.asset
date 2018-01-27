@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - GroundSpawner
+  - Target
+  - GameManager
+  - death
+  - SceneManager
   layers:
   - Default
   - TransparentFX
@@ -14,10 +18,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - player
+  - message
+  - targetZone
+  - ground
   - 
   - 
   - 
