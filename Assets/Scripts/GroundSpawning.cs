@@ -5,7 +5,7 @@ using UnityEngine;
 public class GroundSpawning : MonoBehaviour {
 
 	public float groundMoveSpeed;
-	private float midScreenPos = -400;
+	private float midScreenPos = 0;
 	public float spawnPos = 15;
 	public float destroyOffset;
 	private float destroyPos;
@@ -49,11 +49,9 @@ public class GroundSpawning : MonoBehaviour {
 	public void SpawnObject ()
 	{
 		
-		GameObject newGO = Instantiate(groundObject, Vector2.zero , Quaternion.identity) as GameObject;
+		GameObject newGO = Instantiate(groundObject, new Vector2( midScreenPos + spawnPos, groundHeight ) , Quaternion.identity) as GameObject;
 		newGO.transform.SetParent (groundParent);
-
-		newGO.transform.localScale = new Vector2 (newGO.transform.localScale.x * groundParent.localScale.x, newGO.transform.localScale.y * groundParent.localScale.y);
-		newGO.transform.localPosition = new Vector2 (midScreenPos + spawnPos, groundHeight);
+		//newGO.transform.localPosition = new Vector2 (midScreenPos + spawnPos, groundHeight);
 		groundObjects.Add (newGO);
 
 	}
