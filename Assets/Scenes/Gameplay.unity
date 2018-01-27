@@ -483,7 +483,7 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 4593683596918210, guid: d751dcb66ab65f34bbf97473d71da37e,
     type: 2}
-  m_PrefabInternal: {fileID: 2083536284}
+  m_PrefabInternal: {fileID: 1867029608}
 --- !u!1 &942895479
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 1155764071}
   - component: {fileID: 1155764070}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas_Gameplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -942,12 +942,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &1956546907 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4098191390393362, guid: b9d55818d3c49c8478f1d903f88d7f98,
-    type: 2}
-  m_PrefabInternal: {fileID: 375096588}
---- !u!1001 &2083536284
+--- !u!1001 &1867029608
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -986,29 +981,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114202423356577942, guid: d751dcb66ab65f34bbf97473d71da37e,
-        type: 2}
-      propertyPath: dropDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114202423356577942, guid: d751dcb66ab65f34bbf97473d71da37e,
-        type: 2}
-      propertyPath: gravityForceMin
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114202423356577942, guid: d751dcb66ab65f34bbf97473d71da37e,
-        type: 2}
-      propertyPath: flapDelay
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114202423356577942, guid: d751dcb66ab65f34bbf97473d71da37e,
-        type: 2}
-      propertyPath: flapForce
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d751dcb66ab65f34bbf97473d71da37e, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1956546907 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4098191390393362, guid: b9d55818d3c49c8478f1d903f88d7f98,
+    type: 2}
+  m_PrefabInternal: {fileID: 375096588}
 --- !u!1 &2095347806
 GameObject:
   m_ObjectHideFlags: 0

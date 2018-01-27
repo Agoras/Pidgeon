@@ -16,7 +16,7 @@ public class PidgeonControl : MonoBehaviour {
 	public GameObject basicMessageProjectile;
 	public Transform projectileSpawnPoint;
 
-	public float flapForce;
+	public  float flapForce;
 	public  float flapDelay          = 0.3f;
 	private float flapDelayTimer     = 0.3f;
 	private float deltaTime          = 0.0f;
@@ -25,10 +25,20 @@ public class PidgeonControl : MonoBehaviour {
 	private float dropDelayTimer     = 0.3f;
 
 
+	private Animator anim;
+	public bool isFlapping;
+	public float isFlappingTimer;
+	public float isFlappingDuration;
+	private float currentFlapSpeed;
+	public  float idleFlapSpeed;
+	public  float maxFlapSpeed;
+
+
 	void Awake () 
 	{
 		sceneManager = GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneFlowManager>();
 		pidgeon_rb   = this.transform.GetComponent<Rigidbody2D>();
+		anim = this.transform.GetComponentInChildren<Animator>();
 	}
 	
 	void Update () 
@@ -44,11 +54,9 @@ public class PidgeonControl : MonoBehaviour {
 		else 
 		{
 			gravityForce = Mathf.Lerp(gravityForce, gravityForceMin, gravityLerpSpeed * deltaTime);
-
 		}
 
 		pidgeon_rb.AddForce (-transform.up * gravityForce, ForceMode2D.Force);
-
 
 
 		if (Input.GetButtonDown ("Flap")) 
@@ -58,6 +66,8 @@ public class PidgeonControl : MonoBehaviour {
 				pidgeon_rb.AddForce (transform.up * flapForce, ForceMode2D.Impulse);
 				flapDelayTimer = 0.0f;
 			}
+			isFlapping = true;
+			isFlappingTimer = 0.0f;
 		}
 
 		if (Input.GetButtonDown ("Fire1")) 
@@ -67,6 +77,22 @@ public class PidgeonControl : MonoBehaviour {
 				GameObject newProjectile = Instantiate (basicMessageProjectile, projectileSpawnPoint.position, Quaternion.identity) as GameObject;
 				dropDelayTimer = 0.0f;
 			}
+		}
+
+		if (isFlapping == false) 
+		{
+			anim.speed = idleFlapSpeed;
+		} 
+		else 
+		{
+			isFlappingTimer += deltaTime;
+			anim.speed = maxFlapSpeed;
+		}
+
+		if(isFlappingTimer > isFlappingDuration)
+		{
+			isFlapping = false;
+			isFlappingTimer = 0.0f;
 		}
 	}
 
