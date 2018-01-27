@@ -3,3 +3,4 @@ Temp/
 .vs/Pidgeon/v14/.suo
 *.csproj
 Pidgeon.sln
+.db.meta
