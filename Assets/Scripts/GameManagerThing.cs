@@ -34,6 +34,7 @@ public class GameManagerThing : MonoBehaviour {
 
 		if(gameTimer <= 0.0f)
 		{
+			sceneFlow.finalScore = pigeonRep;
 			sceneFlow.ReloadLevel ("EndScreen", false);
 		}
 	}
