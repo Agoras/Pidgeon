@@ -5,12 +5,29 @@ using UnityEngine;
 
 public class SceneFlowManager : MonoBehaviour {
 
+	private bool isFE = true;
+	public int finalScore;
 
-
-
-	public void ReloadLevel ()
+	void Awake ()
 	{
-		SceneManager.LoadScene ("Gameplay", LoadSceneMode.Single);
+		DontDestroyOnLoad (this.gameObject);
+	}
+
+	void Update ()
+	{
+		if(Input.anyKey && isFE == true)
+		{
+			ReloadLevel ("Gameplay", false);
+
+		}
+	}
+
+
+
+	public void ReloadLevel (string level, bool feState)
+	{
+		SceneManager.LoadScene (level, LoadSceneMode.Single);
+		isFE = feState;
 	}
 
 }
