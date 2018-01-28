@@ -142,7 +142,7 @@ public class PidgeonControl : MonoBehaviour {
             playerSfxSource.PlayOneShot(playerDeadSfx, 0.35f);
 			pigeonSprite.SetActive (false);
             yield return new WaitForSeconds(1.0f);
-            sceneManager.ReloadLevel ("bootstrap", true);
+            sceneManager.ReloadLevel ("DeathScreen", true);
 		}
 	}
 

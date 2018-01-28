@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CentralAudioTerminal.cs" />
+     <Compile Include="Assets\Scripts\DeathScreen.cs" />
      <Compile Include="Assets\Scripts\EnvironmentAudioTerminal.cs" />
      <Compile Include="Assets\Scripts\GameManagerThing.cs" />
      <Compile Include="Assets\Scripts\GroundSegmentBehaivor.cs" />
