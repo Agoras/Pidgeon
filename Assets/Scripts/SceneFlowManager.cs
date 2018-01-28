@@ -18,11 +18,13 @@ public class SceneFlowManager : MonoBehaviour {
 		if(Input.anyKey && isFE == true)
 		{
 			ReloadLevel ("Gameplay", false);
-
 		}
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 	}
-
-
 
 	public void ReloadLevel (string level, bool feState)
 	{
