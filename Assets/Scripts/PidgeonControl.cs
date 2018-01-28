@@ -20,7 +20,9 @@ public class PidgeonControl : MonoBehaviour {
 	public  float gravityForceMin;
 	public  float gravityLerpSpeed;
 
-	public GameObject basicMessageProjectile;
+	public List<GameObject> Projectiles = new List<GameObject> ();
+	public List<GameObject> ProjectilesLoaded = new List<GameObject> ();
+
 	public Transform projectileSpawnPoint;
 
 	public  float flapForce;
@@ -30,7 +32,7 @@ public class PidgeonControl : MonoBehaviour {
 
 	public  float dropDelay          = 0.3f;
 	private float dropDelayTimer     = 0.3f;
-
+	private int randomDropType       = 0;
 
 	private Animator anim;
 	public bool isFlapping;
@@ -101,16 +103,31 @@ public class PidgeonControl : MonoBehaviour {
 			}
 			// load up projectile
 
-
-
 			if (Input.GetButtonDown ("Fire1")) 
 			{
 				if (dropDelayTimer > dropDelay) 
 				{
-					GameObject newProjectile = Instantiate (basicMessageProjectile, projectileSpawnPoint.position, Quaternion.identity) as GameObject;
+					
+					GameObject newProjectile = Instantiate (Projectiles[randomDropType], projectileSpawnPoint.position, Quaternion.identity) as GameObject;
+					if(randomDropType == 1)
+					{
+						newProjectile.GetComponent<Rigidbody2D> ().AddTorque (-2.5f);
+					}
 					dropDelayTimer = 0.0f;
 
 					playerSfxSource.PlayOneShot (playerDropSfx, 0.35f);
+
+					randomDropType = Random.Range (0, Projectiles.Count);
+					if (randomDropType == 0) 
+					{
+						ProjectilesLoaded [0].GetComponent<SpriteRenderer> ().enabled = true;
+						ProjectilesLoaded [1].GetComponent<SpriteRenderer> ().enabled = false;
+					} 
+					else 
+					{
+						ProjectilesLoaded [1].GetComponent<SpriteRenderer> ().enabled = true;
+						ProjectilesLoaded [0].GetComponent<SpriteRenderer> ().enabled = false;						
+					}
 				}
 			}
 		}
@@ -130,9 +147,6 @@ public class PidgeonControl : MonoBehaviour {
 			isFlapping = false;
 			isFlappingTimer = 0.0f;
 		}
-
-
-
 	}
 
 	IEnumerator OnCollisionEnter2D (Collision2D collision2D)
@@ -141,7 +155,7 @@ public class PidgeonControl : MonoBehaviour {
 		{
             playerSfxSource.PlayOneShot(playerDeadSfx, 0.35f);
 			pigeonSprite.SetActive (false);
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.5f);
             sceneManager.ReloadLevel ("DeathScreen", true);
 		}
 	}

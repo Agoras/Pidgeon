@@ -12,6 +12,7 @@ TagManager:
   - BoxHead
   - AirDelay
   - KiteSpawner
+  - EnvAudio
   layers:
   - Default
   - TransparentFX
