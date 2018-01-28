@@ -923,7 +923,7 @@ MonoBehaviour:
   sceneFlow: {fileID: 0}
   pigeonRep: 0
   repPoints: {fileID: 2095347808}
-  gameLength: 20
+  gameLength: 120
   timerText: {fileID: 219908639}
 --- !u!4 &980217174
 Transform:
