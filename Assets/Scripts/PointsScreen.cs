@@ -18,7 +18,13 @@ public class PointsScreen : MonoBehaviour {
 	{
 		if (Input.anyKey)
 		{
-			sceneManager.ReloadLevel ("bootstrap", true);
+            StartCoroutine(MoveAlong());
 		}
 	}
+
+    IEnumerator MoveAlong()
+    {
+        yield return new WaitForSeconds(2.0f);
+        sceneManager.ReloadLevel("bootstrap", true);
+    }
 }
