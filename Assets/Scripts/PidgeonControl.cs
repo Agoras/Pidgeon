@@ -9,6 +9,8 @@ public class PidgeonControl : MonoBehaviour {
     public AudioClip playerDropSfx;
     public AudioClip playerDeadSfx;
 
+	public GameObject pigeonSprite;
+
 	private GroundSpawning groundSpawner;
     private SceneFlowManager sceneManager;
 	private Rigidbody2D pidgeon_rb;
@@ -138,8 +140,9 @@ public class PidgeonControl : MonoBehaviour {
 		if(collision2D.transform.tag == "death")
 		{
             playerSfxSource.PlayOneShot(playerDeadSfx, 0.35f);
-            yield return new WaitForSeconds(0.5f);
-            sceneManager.ReloadLevel ();
+			pigeonSprite.SetActive (false);
+            yield return new WaitForSeconds(1.0f);
+            sceneManager.ReloadLevel ("DeathScreen", true);
 		}
 	}
 
