@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PidgeonControl : MonoBehaviour {
 
+    public AudioSource wingFlapSource;
+    public AudioSource playerSfxSource;
+    public AudioClip playerDropSfx;
+    public AudioClip playerDeadSfx;
 
-	private SceneFlowManager sceneManager;
+    private SceneFlowManager sceneManager;
 	private Rigidbody2D pidgeon_rb;
 
 	private float gravityForce;
@@ -71,10 +75,7 @@ public class PidgeonControl : MonoBehaviour {
 			isFlapping = true;
 			isFlappingTimer = 0.0f;
 		}
-
 		// load up projectile
-
-
 
 
 
@@ -84,7 +85,9 @@ public class PidgeonControl : MonoBehaviour {
 			{
 				GameObject newProjectile = Instantiate (basicMessageProjectile, projectileSpawnPoint.position, Quaternion.identity) as GameObject;
 				dropDelayTimer = 0.0f;
-			}
+
+                playerSfxSource.PlayOneShot(playerDropSfx, 0.35f);
+            }
 		}
 
 		if (isFlapping == false) 
@@ -104,11 +107,13 @@ public class PidgeonControl : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D (Collision2D collision2D)
+	IEnumerator OnCollisionEnter2D (Collision2D collision2D)
 	{
 		if(collision2D.transform.tag == "death")
 		{
-			sceneManager.ReloadLevel ();
+            playerSfxSource.PlayOneShot(playerDeadSfx, 0.35f);
+            yield return new WaitForSeconds(0.5f);
+            sceneManager.ReloadLevel ();
 		}
 	}
 }
