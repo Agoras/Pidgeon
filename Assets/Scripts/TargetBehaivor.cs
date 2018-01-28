@@ -21,11 +21,11 @@ public class TargetBehaivor : MonoBehaviour {
 		spriteRenderer = this.transform.GetComponent<SpriteRenderer> ();
 	}
 
-	public void CalculatePoints (float distance)
+	public void CalculatePoints (string hitType)
 	{
 		if (isHit == false) 
 		{
-			if (distance <= zone0Distance) 
+			if (hitType == "direct") 
 			{
 				gm.pigeonRep += zone0Points;
 				gm.UpdatePigonRep ();

@@ -9,6 +9,7 @@ TagManager:
   - GameManager
   - death
   - SceneManager
+  - BoxHead
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - message
   - targetZone
   - ground
-  - 
+  - TargetHead
   - 
   - 
   - 
