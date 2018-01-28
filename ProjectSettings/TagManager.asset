@@ -11,6 +11,7 @@ TagManager:
   - SceneManager
   - BoxHead
   - AirDelay
+  - KiteSpawner
   layers:
   - Default
   - TransparentFX

@@ -333,7 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &313152111 stripped
 GameObject:
@@ -408,7 +408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &375096588
 Prefab:
@@ -951,7 +951,7 @@ RectTransform:
   - {fileID: 1562436996}
   - {fileID: 942895480}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1000,6 +1000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMoveSpeedMin: 0.075
   groundMoveSpeedMax: 0.075
+  currentGroundSpeed: 0
   groundSpeedAcceleration: 0.01
   spawnPos: 14.5
   destroyOffset: 14
@@ -1012,6 +1013,7 @@ MonoBehaviour:
   - {fileID: 1216036679841974, guid: fce3ace475851424f908bc896c922e1d, type: 2}
   groundParent: {fileID: 1155764073}
   StartGroundObject: {fileID: 313152111}
+  groundObjects: []
 --- !u!1 &1218347444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1106,7 @@ MonoBehaviour:
   isFlappingDuration: 0.3
   idleFlapSpeed: 1
   maxFlapSpeed: 2.5
+  kitePunishDelay: 0.85
 --- !u!50 &1536648977
 Rigidbody2D:
   serializedVersion: 4
@@ -1563,13 +1566,58 @@ RectTransform:
   - {fileID: 2095347807}
   - {fileID: 260704168}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1810790157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1810790159}
+  - component: {fileID: 1810790158}
+  m_Layer: 0
+  m_Name: KiteSpawner
+  m_TagString: KiteSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1810790158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810790157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67bf685f86fd7f143ab6b4260314cb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kiteObject: {fileID: 1454992883651056, guid: 8f89235796884c748b4efec3d812b7b1, type: 2}
+  minSpawnHeight: 0.88
+  maxSpawnHeight: 4.3
+  minGenTime: 5
+  maxGenTime: 8
+--- !u!4 &1810790159
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810790157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1956546907 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4098191390393362, guid: b9d55818d3c49c8478f1d903f88d7f98,

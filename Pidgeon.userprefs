@@ -1,21 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MessageBehaivor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PidgeonControl.cs">
     <Files>
-      <File FileName="Assets\Scripts\PidgeonControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GroundSpawning.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MessageBehaivor.cs" Line="47" Column="1" />
+      <File FileName="Assets\Scripts\PidgeonControl.cs" Line="24" Column="42" />
+      <File FileName="Assets\Scripts\GroundSpawning.cs" Line="24" Column="8" />
+      <File FileName="Assets\Scripts\MessageBehaivor.cs" Line="22" Column="3" />
       <File FileName="Assets\Scripts\TargetBehaivor.cs" Line="36" Column="1" />
       <File FileName="Assets\Scripts\GameManagerThing.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GroundSegmentBehaivor.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SceneFlowManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\KiteGenerationManager.cs" Line="39" Column="70" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Spencer\Documents\GitHub\Pidgeon\Assets\Scripts\TargetBehaivor.cs" line="30" column="1" />
-      <Breakpoint file="C:\Users\Spencer\Documents\GitHub\Pidgeon\Assets\Scripts\TargetBehaivor.cs" line="36" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

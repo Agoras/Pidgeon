@@ -6,7 +6,7 @@ public class GroundSpawning : MonoBehaviour {
 
 	public float groundMoveSpeedMin;
 	public float groundMoveSpeedMax;
-	private float currentGroundSpeed;
+	public float currentGroundSpeed;
 
 	public float groundSpeedAcceleration;
 
@@ -21,7 +21,7 @@ public class GroundSpawning : MonoBehaviour {
 
 
 	public GameObject StartGroundObject;
-	private List<GameObject> groundObjects = new List<GameObject>();
+	public List<GameObject> groundObjects = new List<GameObject>();
 
 
 	void Awake () 

@@ -9,6 +9,7 @@ public class PidgeonControl : MonoBehaviour {
     public AudioClip playerDropSfx;
     public AudioClip playerDeadSfx;
 
+	private GroundSpawning groundSpawner;
     private SceneFlowManager sceneManager;
 	private Rigidbody2D pidgeon_rb;
 
@@ -36,6 +37,11 @@ public class PidgeonControl : MonoBehaviour {
 	private float currentFlapSpeed;
 	public  float idleFlapSpeed;
 	public  float maxFlapSpeed;
+
+	private bool hitKite  =  false;
+	public float kitePunishDelay;
+	private float kitePunishTimer  =  0.0f;
+
 
 	//private bool isLoaded;
 
@@ -65,29 +71,46 @@ public class PidgeonControl : MonoBehaviour {
 		pidgeon_rb.AddForce (-transform.up * gravityForce, ForceMode2D.Force);
 
 
-		if (Input.GetButtonDown ("Flap")) 
+
+		if(hitKite == true)
 		{
-			if (flapDelayTimer > flapDelay) 
+			kitePunishTimer += deltaTime;
+
+			if(kitePunishTimer >= kitePunishDelay)
 			{
-				pidgeon_rb.AddForce (transform.up * flapForce, ForceMode2D.Impulse);
-				flapDelayTimer = 0.0f;
+				hitKite = false;
+				kitePunishTimer = 0.0f;
 			}
-			isFlapping = true;
-			isFlappingTimer = 0.0f;
 		}
-		// load up projectile
 
-
-
-		if (Input.GetButtonDown ("Fire1")) 
+		//Input
+		if (hitKite == false) 
 		{
-			if (dropDelayTimer > dropDelay) 
-			{
-				GameObject newProjectile = Instantiate (basicMessageProjectile, projectileSpawnPoint.position, Quaternion.identity) as GameObject;
-				dropDelayTimer = 0.0f;
 
-                playerSfxSource.PlayOneShot(playerDropSfx, 0.35f);
-            }
+			if (Input.GetButtonDown ("Flap")) 
+			{
+				if (flapDelayTimer > flapDelay) 
+				{
+					pidgeon_rb.AddForce (transform.up * flapForce, ForceMode2D.Impulse);
+					flapDelayTimer = 0.0f;
+				}
+				isFlapping = true;
+				isFlappingTimer = 0.0f;
+			}
+			// load up projectile
+
+
+
+			if (Input.GetButtonDown ("Fire1")) 
+			{
+				if (dropDelayTimer > dropDelay) 
+				{
+					GameObject newProjectile = Instantiate (basicMessageProjectile, projectileSpawnPoint.position, Quaternion.identity) as GameObject;
+					dropDelayTimer = 0.0f;
+
+					playerSfxSource.PlayOneShot (playerDropSfx, 0.35f);
+				}
+			}
 		}
 
 		if (isFlapping == false) 
@@ -105,6 +128,9 @@ public class PidgeonControl : MonoBehaviour {
 			isFlapping = false;
 			isFlappingTimer = 0.0f;
 		}
+
+
+
 	}
 
 	IEnumerator OnCollisionEnter2D (Collision2D collision2D)
@@ -114,6 +140,15 @@ public class PidgeonControl : MonoBehaviour {
             playerSfxSource.PlayOneShot(playerDeadSfx, 0.35f);
             yield return new WaitForSeconds(0.5f);
             sceneManager.ReloadLevel ();
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D collider2D)
+	{
+		if (collider2D.tag == "AirDelay") 
+		{
+			GameObject.FindGameObjectWithTag ("KiteSpawner").GetComponent<KiteGenerationManager> ().GotHit ();
+			hitKite = true;
 		}
 	}
 }
