@@ -231,7 +231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -672, y: -44.73297}
+  m_AnchoredPosition: {x: -672, y: -44.73291}
   m_SizeDelta: {x: 162.2, y: 63.455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219908639
@@ -739,12 +739,21 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4001775722977976, guid: 352b421e6fd62a840b79b30fb4ad5b73, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 352b421e6fd62a840b79b30fb4ad5b73, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &546553253 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4645538610945784, guid: 352b421e6fd62a840b79b30fb4ad5b73,
+    type: 2}
+  m_PrefabInternal: {fileID: 546553252}
+--- !u!1 &546553254 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1444737374375640, guid: 352b421e6fd62a840b79b30fb4ad5b73,
     type: 2}
   m_PrefabInternal: {fileID: 546553252}
 --- !u!4 &604096182
@@ -923,7 +932,7 @@ MonoBehaviour:
   sceneFlow: {fileID: 0}
   pigeonRep: 0
   repPoints: {fileID: 2095347808}
-  gameLength: 120
+  gameLength: 80
   timerText: {fileID: 219908639}
 --- !u!4 &980217174
 Transform:
@@ -1215,8 +1224,12 @@ MonoBehaviour:
   gravityForceMax: 10
   gravityForceMin: 2
   gravityLerpSpeed: 3
-  basicMessageProjectile: {fileID: 1010081235596262, guid: 0d815c4cf986301439796395f2b985c8,
-    type: 2}
+  Projectiles:
+  - {fileID: 1010081235596262, guid: 0d815c4cf986301439796395f2b985c8, type: 2}
+  - {fileID: 1252738865857662, guid: 326dd207251700d4ab5ba7228c248009, type: 2}
+  ProjectilesLoaded:
+  - {fileID: 546553254}
+  - {fileID: 1989275108}
   projectileSpawnPoint: {fileID: 1726152104}
   flapForce: 4
   flapDelay: 0.05
@@ -1790,6 +1803,82 @@ Transform:
   m_PrefabParentObject: {fileID: 4098191390393362, guid: b9d55818d3c49c8478f1d903f88d7f98,
     type: 2}
   m_PrefabInternal: {fileID: 375096588}
+--- !u!1 &1989275108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1941538627693716, guid: 326dd207251700d4ab5ba7228c248009,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1989275109}
+  - component: {fileID: 1989275110}
+  m_Layer: 0
+  m_Name: MessageBomb_Package
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1989275109
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4804885368472434, guid: 326dd207251700d4ab5ba7228c248009,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989275108}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.16, y: -0.38, z: 0}
+  m_LocalScale: {x: 1.1005707, y: 1.1005707, z: 0}
+  m_Children: []
+  m_Father: {fileID: 546553253}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1989275110
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 212633954945538138, guid: 326dd207251700d4ab5ba7228c248009,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989275108}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 87ae3bc341ec1b541ae3389884bbab00, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.12, y: 5.12}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &2020087667
 GameObject:
   m_ObjectHideFlags: 0
