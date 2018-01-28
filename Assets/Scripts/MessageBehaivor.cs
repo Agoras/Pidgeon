@@ -5,7 +5,6 @@ using UnityEngine;
 public class MessageBehaivor : MonoBehaviour {
 
 	private GameManagerThing gm;
-
 	public int missDeduction;
 
 	private Rigidbody2D projectile_rb;
@@ -16,7 +15,7 @@ public class MessageBehaivor : MonoBehaviour {
 	void Awake () 
 	{
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManagerThing>();
-
+		//anim = transform.GetComponentInChildren<Animator> ();
 		projectile_rb = this.transform.GetComponent<Rigidbody2D> ();
 		projectile_rb.AddForce (Vector2.right * dropForceForward, ForceMode2D.Impulse);
 	}
@@ -43,18 +42,29 @@ public class MessageBehaivor : MonoBehaviour {
 
 		// Get nearest Target and send distance
 
-		if(currentTarget == null)
+		if( collision2D.transform.tag == "BoxHead")
+		{
+			currentTarget.GetComponent<TargetBehaivor> ().CalculatePoints ("direct");
+			currentTarget.GetComponentInChildren<Animator>().SetBool ("takeMessage", true);
+			Destroy (this.gameObject);
+		}
+		else if(currentTarget == null)
 		{
 			gm.pigeonRep -= missDeduction;
 			gm.UpdatePigonRep ();
+			this.transform.SetParent (collision2D.transform.parent);
+			projectile_rb.Sleep();
+
 		}
 		else 
 		{
 			float dist = Vector2.Distance (currentTarget.position, this.transform.position);
-			currentTarget.GetComponent<TargetBehaivor> ().CalculatePoints (dist);
+			currentTarget.GetComponent<TargetBehaivor> ().CalculatePoints ("nearHit");
+			this.transform.SetParent (collision2D.transform.parent);
+			projectile_rb.Sleep();
 		}
 
 
-		Destroy (this.gameObject);
+
 	}
 }
