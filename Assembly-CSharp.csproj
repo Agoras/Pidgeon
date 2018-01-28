@@ -52,9 +52,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CentralAudioTerminal.cs" />
+     <Compile Include="Assets\Scripts\EnvironmentAudioTerminal.cs" />
      <Compile Include="Assets\Scripts\GameManagerThing.cs" />
      <Compile Include="Assets\Scripts\GroundSegmentBehaivor.cs" />
      <Compile Include="Assets\Scripts\GroundSpawning.cs" />
+     <Compile Include="Assets\Scripts\KiteGenerationManager.cs" />
      <Compile Include="Assets\Scripts\MessageBehaivor.cs" />
      <Compile Include="Assets\Scripts\PidgeonControl.cs" />
      <Compile Include="Assets\Scripts\SceneFlowManager.cs" />
