@@ -158,6 +158,13 @@ public class PidgeonControl : MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
             sceneManager.ReloadLevel ("DeathScreen", true);
 		}
+
+		if (collision2D.transform.tag == "BoxHead" && collision2D.transform.parent.GetComponent<TargetBehaivor>().isPickUp == true)
+		{
+			//Add one collectable
+		}
+			
+
 	}
 
 	void OnTriggerEnter2D (Collider2D collider2D)

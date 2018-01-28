@@ -10,6 +10,8 @@ public class GameManagerThing : MonoBehaviour {
 	public int pigeonRep;
 	public Text repPoints;
 
+	public int collectables = 0;
+
 	public float gameLength;
 	private float gameTimer;
 	public Text timerText;

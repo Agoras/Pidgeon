@@ -6,6 +6,8 @@ public class TargetBehaivor : MonoBehaviour {
 
 	private GameManagerThing gm;
 
+	public bool isPickUp = false;
+
 	public float zone0Distance;
 	public int zone0Points = 3;
 	public float zone1Distance;
@@ -21,9 +23,10 @@ public class TargetBehaivor : MonoBehaviour {
 		spriteRenderer = this.transform.GetComponent<SpriteRenderer> ();
 	}
 
+
 	public void CalculatePoints (string hitType)
 	{
-		if (isHit == false) 
+		if (isHit == false && isPickUp == false) 
 		{
 			if (hitType == "direct") 
 			{
@@ -39,6 +42,7 @@ public class TargetBehaivor : MonoBehaviour {
 			}
 			isHit = true;
 		}
+			
 	}
 }
 

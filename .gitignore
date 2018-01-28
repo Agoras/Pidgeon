@@ -4,3 +4,4 @@ Temp/
 *.csproj
 Pidgeon.sln
 .db.meta
+*.sln

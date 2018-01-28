@@ -1,15 +1,17 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="Pidgeon.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PidgeonControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PointsScreen.cs">
     <Files>
-      <File FileName="Assets\Scripts\PidgeonControl.cs" Line="24" Column="42" />
-      <File FileName="Assets\Scripts\GroundSpawning.cs" Line="24" Column="8" />
-      <File FileName="Assets\Scripts\MessageBehaivor.cs" Line="22" Column="3" />
-      <File FileName="Assets\Scripts\TargetBehaivor.cs" Line="36" Column="1" />
-      <File FileName="Assets\Scripts\GameManagerThing.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PidgeonControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SceneFlowManager.cs" Line="9" Column="24" />
+      <File FileName="Assets\Scripts\GameManagerThing.cs" Line="23" Column="12" />
+      <File FileName="Assets\Scripts\PointsScreen.cs" Line="25" Column="1" />
+      <File FileName="Assets\Scripts\GroundSpawning.cs" Line="9" Column="33" />
+      <File FileName="Assets\Scripts\MessageBehaivor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TargetBehaivor.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GroundSegmentBehaivor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SceneFlowManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\KiteGenerationManager.cs" Line="39" Column="70" />
+      <File FileName="Assets\Scripts\KiteGenerationManager.cs" Line="50" Column="75" />
+      <File FileName="Assets\Scripts\DeathScreen.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
