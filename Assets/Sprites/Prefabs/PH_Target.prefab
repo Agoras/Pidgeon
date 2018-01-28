@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab495c7ca73129144bddbf09fc20e89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPickUp: 0
   zone0Distance: 0.5
   zone0Points: 3
   zone1Distance: 5

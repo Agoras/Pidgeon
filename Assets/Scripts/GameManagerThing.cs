@@ -11,6 +11,7 @@ public class GameManagerThing : MonoBehaviour {
 	public Text repPoints;
 
 	public int collectables = 0;
+	public List<SpriteRenderer> collectSprites = new List<SpriteRenderer>();
 
 	public float gameLength;
 	private float gameTimer;

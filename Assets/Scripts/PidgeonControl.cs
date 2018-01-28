@@ -9,6 +9,7 @@ public class PidgeonControl : MonoBehaviour {
     public AudioClip playerDropSfx;
     public AudioClip playerDeadSfx;
 
+	private GameManagerThing gm;
 	public GameObject pigeonSprite;
 
 	private GroundSpawning groundSpawner;
@@ -52,6 +53,7 @@ public class PidgeonControl : MonoBehaviour {
 
 	void Awake () 
 	{
+		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManagerThing>();
 		sceneManager = GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneFlowManager>();
 		pidgeon_rb   = this.transform.GetComponent<Rigidbody2D>();
 		anim = this.transform.GetComponentInChildren<Animator>();
@@ -162,6 +164,14 @@ public class PidgeonControl : MonoBehaviour {
 		if (collision2D.transform.tag == "BoxHead" && collision2D.transform.parent.GetComponent<TargetBehaivor>().isPickUp == true)
 		{
 			//Add one collectable
+
+			if(gm.collectables <= 2)
+			{
+				gm.collectSprites[gm.collectables].enabled = true;
+				gm.collectables += 1;
+
+				collision2D.transform.parent.GetComponentInChildren<Animator> ().SetBool ("hasPickedUp", true);
+			}
 		}
 			
 

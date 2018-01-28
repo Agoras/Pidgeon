@@ -46,7 +46,7 @@ public class MessageBehaivor : MonoBehaviour {
 
 		// Get nearest Target and send distance
 
-		if( collision2D.transform.tag == "BoxHead")
+		if( collision2D.transform.tag == "BoxHead" && collision2D.transform.parent.GetComponent<TargetBehaivor>().isPickUp == false )
 		{
             eat.PlaySuccessSound();
             currentTarget.GetComponent<TargetBehaivor> ().CalculatePoints ("direct");
