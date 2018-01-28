@@ -46,20 +46,21 @@ public class MessageBehaivor : MonoBehaviour {
 
 		// Get nearest Target and send distance
 
-		if( collision2D.transform.tag == "BoxHead" && collision2D.transform.parent.GetComponent<TargetBehaivor>().isPickUp == false )
+
+		if (currentTarget == null)
+		{
+			eat.PlayMissedSound ();
+			gm.pigeonRep -= missDeduction;
+			gm.UpdatePigonRep ();
+			this.transform.SetParent (collision2D.transform.parent);
+			projectile_rb.Sleep ();
+		}
+		else if( collision2D.transform.tag == "BoxHead" && collision2D.transform.parent.GetComponent<TargetBehaivor>().isPickUp == false )
 		{
             eat.PlaySuccessSound();
             currentTarget.GetComponent<TargetBehaivor> ().CalculatePoints ("direct");
 			currentTarget.GetComponentInChildren<Animator>().SetBool ("takeMessage", true);
 			Destroy (this.gameObject);
-		}
-		else if(currentTarget == null)
-		{
-            eat.PlayMissedSound();
-            gm.pigeonRep -= missDeduction;
-			gm.UpdatePigonRep ();
-			this.transform.SetParent (collision2D.transform.parent);
-			projectile_rb.Sleep();
 		}
 		else 
 		{
