@@ -5,7 +5,8 @@ using UnityEngine;
 public class MessageBehaivor : MonoBehaviour {
 
 	private GameManagerThing gm;
-	public int missDeduction;
+    private EnvironmentAudioTerminal eat;
+    public int missDeduction;
 
 	private Rigidbody2D projectile_rb;
 	public float dropForceForward;
@@ -44,27 +45,26 @@ public class MessageBehaivor : MonoBehaviour {
 
 		if( collision2D.transform.tag == "BoxHead")
 		{
-			currentTarget.GetComponent<TargetBehaivor> ().CalculatePoints ("direct");
+            eat.PlaySuccessSound();
+            currentTarget.GetComponent<TargetBehaivor> ().CalculatePoints ("direct");
 			currentTarget.GetComponentInChildren<Animator>().SetBool ("takeMessage", true);
 			Destroy (this.gameObject);
 		}
 		else if(currentTarget == null)
 		{
-			gm.pigeonRep -= missDeduction;
+            eat.PlayMissedSound();
+            gm.pigeonRep -= missDeduction;
 			gm.UpdatePigonRep ();
 			this.transform.SetParent (collision2D.transform.parent);
 			projectile_rb.Sleep();
-
 		}
 		else 
 		{
-			float dist = Vector2.Distance (currentTarget.position, this.transform.position);
+            eat.PlayMissedSound();
+            float dist = Vector2.Distance (currentTarget.position, this.transform.position);
 			currentTarget.GetComponent<TargetBehaivor> ().CalculatePoints ("nearHit");
 			this.transform.SetParent (collision2D.transform.parent);
 			projectile_rb.Sleep();
 		}
-
-
-
 	}
 }
