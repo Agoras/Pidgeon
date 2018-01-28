@@ -103,8 +103,6 @@ public class PidgeonControl : MonoBehaviour {
 			}
 			// load up projectile
 
-
-
 			if (Input.GetButtonDown ("Fire1")) 
 			{
 				if (dropDelayTimer > dropDelay) 
@@ -149,9 +147,6 @@ public class PidgeonControl : MonoBehaviour {
 			isFlapping = false;
 			isFlappingTimer = 0.0f;
 		}
-
-
-
 	}
 
 	IEnumerator OnCollisionEnter2D (Collision2D collision2D)
@@ -160,7 +155,7 @@ public class PidgeonControl : MonoBehaviour {
 		{
             playerSfxSource.PlayOneShot(playerDeadSfx, 0.35f);
 			pigeonSprite.SetActive (false);
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.5f);
             sceneManager.ReloadLevel ("DeathScreen", true);
 		}
 	}

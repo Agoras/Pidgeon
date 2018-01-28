@@ -84,11 +84,13 @@ public class EnvironmentAudioTerminal : MonoBehaviour
     
     public void PlayMissedSound()
     {
+        Debug.Log("ATTEMPTING TO PLAY MISSED SOUND");
         audioSource.PlayOneShot(audioClip[0], 0.35f);
     }
 
     public void PlaySuccessSound()
     {
+        Debug.Log("ATTEMPTING TO PLAY SUCCESS SOUND");
         audioSource.PlayOneShot(audioClip[1], 0.35f);
     }
 }
